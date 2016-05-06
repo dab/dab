@@ -1,5 +1,5 @@
 "
-" nvim.init | .vimrc
+" nvim.init
 " by Dima Belitsky
 " github.com/dab
 " dbelitsky@ya.ru
@@ -11,9 +11,6 @@ let s:darwin = has('mac')
 
 silent! if plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-Plug 'junegunn/gv.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -33,9 +30,7 @@ Plug 'itchyny/landscape.vim'
 let g:landscape_highlight_todo = 1
 
 " Edit
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -60,16 +55,15 @@ Plug 'tpope/vim-tbone'
 " Browsing
 Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
 autocmd! User indentLine doautocmd indentLine Syntax
-
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'justinmk/vim-gtfo'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'jreybert/vimagit'
+Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'cohama/agit.vim'
+" Plug 'jreybert/vimagit'
+" Plug 'cohama/agit.vim'
 
 " Lang
 " Plug 'vim-ruby/vim-ruby'
@@ -78,19 +72,17 @@ Plug '1995eaton/vim-better-javascript-completion'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'moll/vim-node'
 " Plug 'burnettk/vim-angular'
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 Plug 'groenewege/vim-less'
 Plug 'othree/yajs.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'sbt.scala'] }
-Plug 'honza/dockerfile.vim'
+"Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'sbt.scala'] }
+"Plug 'honza/dockerfile.vim'
 if s:darwin
   Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 endif
 Plug 'chrisbra/unicode.vim', { 'for': 'journal' }
 Plug 'sophacles/vim-processing'
-" Plug 'mxw/vim-jsx'
-" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " Lint
 Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
@@ -151,108 +143,6 @@ let &showbreak = '↳ '
 set breakindent
 set breakindentopt=sbr
 
-
-" %< Where to truncate
-" %n buffer number
-" %F Full path
-" %m Modified flag: [+], [-]
-" %r Readonly flag: [RO]
-" %y Type:          [vim]
-" fugitive#statusline()
-" %= Separator
-" %-14.(...)
-" %l Line
-" %c Column
-" %V Virtual column
-" %P Percentage
-" %#HighlightGroup#
-set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
-silent! if emoji#available()
-  let s:ft_emoji = map({
-    \ 'c':          'baby_chick',
-    \ 'clojure':    'lollipop',
-    \ 'coffee':     'coffee',
-    \ 'cpp':        'chicken',
-    \ 'css':        'art',
-    \ 'eruby':      'ring',
-    \ 'gitcommit':  'soon',
-    \ 'haml':       'hammer',
-    \ 'help':       'angel',
-    \ 'html':       'herb',
-    \ 'java':       'older_man',
-    \ 'javascript': 'monkey',
-    \ 'make':       'seedling',
-    \ 'markdown':   'book',
-    \ 'perl':       'camel',
-    \ 'python':     'snake',
-    \ 'ruby':       'gem',
-    \ 'scala':      'barber',
-    \ 'sh':         'shell',
-    \ 'slim':       'dancer',
-    \ 'text':       'books',
-    \ 'vim':        'poop',
-    \ 'vim-plug':   'electric_plug',
-    \ 'yaml':       'yum',
-    \ 'yaml.jinja': 'yum'
-  \ }, 'emoji#for(v:val)')
-
-  function! S_filetype()
-    if empty(&filetype)
-      return emoji#for('grey_question')
-    else
-      return get(s:ft_emoji, &filetype, '['.&filetype.']')
-    endif
-  endfunction
-
-  function! S_modified()
-    if &modified
-      return emoji#for('kiss').' '
-    elseif !&modifiable
-      return emoji#for('construction').' '
-    else
-      return ''
-    endif
-  endfunction
-
-  function! S_fugitive()
-    if !exists('g:loaded_fugitive')
-      return ''
-    endif
-    let head = fugitive#head()
-    if empty(head)
-      return ''
-    else
-      return head == 'master' ? emoji#for('crown') : emoji#for('dango').'='.head
-    endif
-  endfunction
-
-  let s:braille = split('"⠉⠒⠤⣀', '\zs')
-  function! Braille()
-    let len = len(s:braille)
-    let [cur, max] = [line('.'), line('$')]
-    let pos  = min([len * (cur - 1) / max([1, max - 1]), len - 1])
-    return s:braille[pos]
-  endfunction
-
-  hi def link User1 TablineFill
-  let s:cherry = emoji#for('cherry_blossom')
-  function! MyStatusLine()
-    let mod = '%{S_modified()}'
-    let ro  = "%{&readonly ? emoji#for('lock') . ' ' : ''}"
-    let ft  = '%{S_filetype()}'
-    let fug = ' %{S_fugitive()}'
-    let sep = ' %= '
-    let pos = ' %l,%c%V '
-    let pct = ' %P '
-
-    return s:cherry.' [%n] %F %<'.mod.ro.ft.fug.sep.pos.'%{Braille()}%*'.pct.s:cherry
-  endfunction
-
-  " Note that the "%!" expression is evaluated in the context of the
-  " current window and buffer, while %{} items are evaluated in the
-  " context of the window that the statusline belongs to.
-  set statusline=%!MyStatusLine()
-endif
 
 set pastetoggle=<F9>
 set modelines=2
@@ -468,13 +358,12 @@ endfunction
       return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
   endfunction " }}}
 
-  function! JavaScriptFold() "{{{
-    " syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-    setlocal foldmethod=syntax
-    setlocal foldlevel=99
-    " echo "hello"
-    syn region foldBraces start=/{/ skip=/\(\/\/.*\)\|\(\/.*\/\)/ end=/}/ transparent fold keepend extend
-  endfunction "}}}
+  " function! JavaScriptFold() "{{{
+  "   " syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+  "   setlocal foldmethod=syntax
+  "   setlocal foldlevel=99
+  "   syn region foldBraces start=/{/ skip=/\(\/\/.*\)\|\(\/.*\/\)/ end=/}/ transparent fold keepend extend
+  " endfunction "}}}
 
   " function! HTMLFold() "{{{
   "   " syn sync fromstart
@@ -501,7 +390,7 @@ endfunction
   " autocmd FileType html setlocal foldmethod=syntax
   autocmd FileType html setlocal fdl=99
 
-  autocmd FileType javascript call JavaScriptFold()
+  " autocmd FileType javascript call JavaScriptFold()
   autocmd FileType javascript,html,css,scss,typescript setlocal foldlevel=99
   autocmd FileType javascript,typescript,css,scss,json setlocal foldmethod=marker
   autocmd FileType javascript,typescript,css,scss,json setlocal foldmarker={,}
@@ -645,44 +534,6 @@ silent! if has_key(g:plugs, 'vim-after-object')
 endif
 
 " ----------------------------------------------------------------------------
-" <Enter> | vim-easy-align
-" ----------------------------------------------------------------------------
-let g:easy_align_delimiters = {
-\ '>': { 'pattern': '>>\|=>\|>' },
-\ '\': { 'pattern': '\\' },
-\ '/': { 'pattern': '//\+\|/\*\|\*/', 'delimiter_align': 'l', 'ignore_groups': ['!Comment'] },
-\ ']': {
-\     'pattern':       '\]\zs',
-\     'left_margin':   0,
-\     'right_margin':  1,
-\     'stick_to_left': 0
-\   },
-\ ')': {
-\     'pattern':       ')\zs',
-\     'left_margin':   0,
-\     'right_margin':  1,
-\     'stick_to_left': 0
-\   },
-\ 'f': {
-\     'pattern': ' \(\S\+(\)\@=',
-\     'left_margin': 0,
-\     'right_margin': 0
-\   },
-\ 'd': {
-\     'pattern': ' \ze\S\+\s*[;=]',
-\     'left_margin': 0,
-\     'right_margin': 0
-\   }
-\ }
-
-" Start interactive EasyAlign in visual mode
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign with a Vim movement
-nmap ga <Plug>(EasyAlign)
-nmap gaa ga_
-
-" ----------------------------------------------------------------------------
 " vim-github-dashboard
 " ----------------------------------------------------------------------------
 let g:github_dashboard = { 'username': 'dab' }
@@ -708,40 +559,6 @@ endfunction
 command! -range EmojiReplace <line1>,<line2>call s:replace_emojis()
 
 " ----------------------------------------------------------------------------
-" goyo.vim + limelight.vim
-" ----------------------------------------------------------------------------
-let g:limelight_paragraph_span = 1
-let g:limelight_priority = -1
-
-function! s:goyo_enter()
-  if has('gui_running')
-    set fullscreen
-    set background=light
-    set linespace=7
-  elseif exists('$TMUX')
-    silent !tmux set status off
-  endif
-  " hi NonText ctermfg=101
-  Limelight
-endfunction
-
-function! s:goyo_leave()
-  if has('gui_running')
-    set nofullscreen
-    set background=dark
-    set linespace=0
-  elseif exists('$TMUX')
-    silent !tmux set status on
-  endif
-  Limelight!
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-nnoremap <Leader>G :Goyo<CR>
-
-" ----------------------------------------------------------------------------
 " undotree
 " ----------------------------------------------------------------------------
 let g:undotree_WindowLayout = 2
@@ -751,7 +568,6 @@ nnoremap U :UndotreeToggle<CR>
 " vim-markdown
 " ----------------------------------------------------------------------------
 let g:vim_markdown_initial_foldlevel = &foldlevelstart
-
 
 " ----------------------------------------------------------------------------
 " syntastic
@@ -778,6 +594,84 @@ let g:lightline = {
       \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
       \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
       \ }
+
+silent! if emoji#available()
+  let s:ft_emoji = map({
+    \ 'c':          'baby_chick',
+    \ 'clojure':    'lollipop',
+    \ 'coffee':     'coffee',
+    \ 'cpp':        'chicken',
+    \ 'css':        'art',
+    \ 'eruby':      'ring',
+    \ 'gitcommit':  'soon',
+    \ 'haml':       'hammer',
+    \ 'help':       'angel',
+    \ 'html':       'herb',
+    \ 'java':       'older_man',
+    \ 'javascript': 'monkey',
+    \ 'make':       'seedling',
+    \ 'markdown':   'book',
+    \ 'perl':       'camel',
+    \ 'python':     'snake',
+    \ 'ruby':       'gem',
+    \ 'scala':      'barber',
+    \ 'sh':         'shell',
+    \ 'slim':       'dancer',
+    \ 'text':       'books',
+    \ 'vim':        'poop',
+    \ 'vim-plug':   'electric_plug',
+    \ 'yaml':       'yum',
+    \ 'yaml.jinja': 'yum'
+  \ }, 'emoji#for(v:val)')
+
+  function! S_filetype()
+    if empty(&filetype)
+      return emoji#for('grey_question')
+    else
+      return get(s:ft_emoji, &filetype, '['.&filetype.']')
+    endif
+  endfunction
+
+  function! S_modified()
+    if &modified
+      return emoji#for('kiss').' '
+    elseif !&modifiable
+      return emoji#for('construction').' '
+    else
+      return ''
+    endif
+  endfunction
+
+  function! S_fugitive()
+    if !exists('g:loaded_fugitive')
+      return ''
+    endif
+    let head = fugitive#head()
+    if empty(head)
+      return ''
+    else
+      return head == 'master' ? emoji#for('crown') : emoji#for('dango').'='.head
+    endif
+  endfunction
+
+  hi def link User1 TablineFill
+  let s:cherry = emoji#for('cherry_blossom')
+  function! MyStatusLine()
+    let mod = '%{S_modified()}'
+    let ro  = "%{&readonly ? emoji#for('lock') . ' ' : ''}"
+    let ft  = '%{S_filetype()}'
+    let fug = ' %{S_fugitive()}'
+    let sep = ' %= '
+    let pos = ' %l,%c%V '
+    let pct = ' %P '
+
+    return s:cherry.' [%n] %F %<'.mod.ro.ft.fug.sep.pos.'%{Braille()}%*'.pct.s:cherry
+  endfunction
+
+  " Note that the "%!" expression is evaluated in the context of the
+  " current window and buffer, while %{} items are evaluated in the
+  " context of the window that the statusline belongs to.
+endif
 
 function! LightLineModified()
   if &filetype == "help"
@@ -833,7 +727,6 @@ nnoremap <silent> <Leader>` :Marks<CR>
 " nnoremap <silent> q: :History:<CR>
 " nnoremap <silent> q/ :History/<CR>
 
-inoremap <expr> <c-x><c-t> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
