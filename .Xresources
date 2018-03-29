@@ -21,9 +21,7 @@ Xft.rgba: rgb
             -wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
 !URxvt*font: -misc-fixed-*-*-normal-*-20-200-75-75-*-100-*-r, \
             -wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
-URxvt*font: xft:Source Code Pro:size=7, xft:FontAwesome:size=8, \
-            xft:unifont:style=Medium:antialias=false, \
-            -jmk-Neep-Medium-R-Normal--20-180-75-75-C-100-ISO8859-1
+URxvt*font: xft:InputMonoCompressed Nerd Font:size=7
 URxvt*internalBorder:  20
 URxvt*scrollBar:       false
 URxvt.geometry:        92x23
@@ -70,7 +68,7 @@ URxvt*perl-lib:        /usr/lib/urxvt/perl/
 URxvt*perl-ext-common: default,matcher
 
 !CLICKABLE LINKS
-URxvt*url-launcher:   inox
+URxvt*url-launcher:   google-chrome-beta
 URxvt*matcher.button: 1
 
 !2BWM COLORS

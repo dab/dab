@@ -22,7 +22,7 @@ COL1="#2B2B29"
 COL2="#5E5E5C"
 
 #VARS
-FONT="SourceSansPro:bold:size=6"
+FONT="NotoMono:size=6"
 GLYPH="FontAwesome:size=7"
 #FONT="-zevv-peep-medium-r-normal-*-20-175-75-75-c-100-iso8859-*"
 #FONT="-*-terminus-*-*-*-*-20-*-*-*-*-*-*-u"
@@ -205,7 +205,7 @@ BAR()
         -u $BORDER \
         -r $BORDER \
         -R "#353533" \
-        -g 2550x$HEIGHT+0+0 | sh &
+        -g 2880x$HEIGHT+0+0 | sh &
 }
 
 BAR > /dev/null

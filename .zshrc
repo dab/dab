@@ -15,12 +15,13 @@ setopt interactivecomments
 test -f ~/.zplug/init.zsh || git clone --single-branch https://github.com/b4b4r07/zplug.git ~/.zplug
 source ~/.zplug/init.zsh
 
-zplug "rimraf/k"
-zplug "sindresorhus/pure", use:"{async,pure}.zsh"
+zplug "supercrabtree/k"
+zplug "geometry-zsh/geometry"
+#zplug "sindresorhus/pure", use:"{async,pure}.zsh"
 zplug "djui/alias-tips", hook-load: "export ZSH_PLUGINS_ALIAS_TIPS_TEXT='💡  '"
-zplug "andsens/homeshick", use:"homeshick.sh"
+#zplug "andsens/homeshick", use:"homeshick.sh"
 zplug "b4b4r07/enhancd", use:"zsh/enhancd.zsh"
-zplug "joshuarubin/zsh-homebrew"
+#zplug "joshuarubin/zsh-homebrew"
 zplug "sorin-ionescu/prezto", use:"modules/git/alias.zsh"
 zplug "sorin-ionescu/prezto", use:"modules/history/init.zsh"
 zplug 'junegunn/fzf-bin', as:command, from:"gh-r", rename-to:"fzf", use:"*${$(uname):l}*amd64*"
@@ -31,10 +32,6 @@ zplug "zsh-users/zsh-syntax-highlighting", lazy:"true"
 zplug "zsh-users/zsh-history-substring-search"
 zmodload zsh/terminfo # for substring search
 
-#[[ $(uname) == Darwin ]] && {
-  bindkey "$terminfo[cuu1]" history-substring-search-up
-  bindkey "$terminfo[cud1]" history-substring-search-down
-#}
 
 zplug load
 
@@ -58,8 +55,9 @@ export EDITOR=vim
 export VISUAL=vim
 
 # fix "xdg-open fork-bomb" export your preferred browser from here
-export BROWSER=inox
+export BROWSER=google-chrome-beta 
 export LC_ALL=en_US.utf8
+export GEOMETRY_PROMPT_PLUGINS=(exec_time git)
 
 alias con='vim $HOME/.i3/config'
 alias comp='vim $HOME/.config/compton.conf'
@@ -69,7 +67,7 @@ alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --colo
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias mirrors='sudo pacman-mirrors -g'
 alias printer='system-config-printer'
-alias update='yaourt -Syua'
+alias update='yay -Syua'
 
 # fzf-enhanced functions
 (( $+commands[fzf] )) && {
@@ -116,3 +114,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

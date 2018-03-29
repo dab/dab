@@ -41,10 +41,10 @@ static const uint8_t borders[] = {6,14,6,14};
 #define LOOK_INTO "WM_NAME"
 static const char *ignore_names[] = {"bar", "xclock"};
 ///--Menus and Programs---///
-static const char *menucmd[]   = { "dmenu_recency", NULL };
-static const char *terminal[]  = { "urxvtc", NULL };
-static const char *browser[]   = { "inox", "--force-device-scale-factor=1.75", NULL };
-static const char *files[]     = { "urxvtc", "-e", "ranger", NULL };
+static const char *menucmd[]   = { "rofi", "-show", "run", NULL };
+static const char *terminal[]  = { "alacritty", NULL };
+static const char *browser[]   = { "google-chrome-beta", "--force-device-scale-factor=1.75", NULL };
+static const char *files[]     = { "alacritty", "-e", "ranger", NULL };
 static const char *scr[]       = { "/home/dab/bin/screenshot", NULL };
 static const char *lock[]      = { "/home/dab/bin/lock/lock.sh", NULL };
 static const char *toggle[]    = { "mpc", "toggle", NULL };

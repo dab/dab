@@ -67,6 +67,7 @@ Plug 'groenewege/vim-less'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'posva/vim-vue'
 Plug 'derekwyatt/vim-scala'
 Plug 'ensime/ensime-vim',    { 'for': 'scala' } " sbt/ensimeConfig
 Plug 'honza/dockerfile.vim'
@@ -77,7 +78,24 @@ Plug 'chrisbra/unicode.vim', { 'for': 'journal' }
 " Lint
 Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
 
+Plug 'xero/sourcerer.vim'
+
 call plug#end()
+
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 let mapleader      = ' '
 let maplocalleader = ' '
@@ -218,5 +236,5 @@ command! Plugs call fzf#run({
 
 " }}}
 set nonumber
-colorscheme fray
+colorscheme sourcerer
 syntax on

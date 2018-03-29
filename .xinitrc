@@ -17,29 +17,28 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 xrdb -merge ~/.Xresources
 
-xrandr --output eDP1 --dpi 227 
-
 #xrandr --output eDP1 --scale 1.2x1.2
 #xrandr --output eDP1 --panning 3072x1920
 
 compton -b &
 #pulseaudio &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-#nm-applet &
+nm-applet &
 xfce4-power-manager &
 urxvtd &
 mpd &
-#pamac-tray &
+pamac-tray &
 #blueman
-redshift-gtk &
+#redshift-gtk &
 xautolock -time 10 -locker blurlock &
 setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle,grp_led:caps,ctrl:nocaps"
 nitrogen --restore &
 
-#polybar Bar &
+polybar example -reload &
 
-/home/dab/bin/bar &
+#/home/dab/bin/bar &
 
-#exec i3
+exec i3
+
 #exec bspwm
-exec 2bwm
+#exec 2bwm
