@@ -1,10 +1,10 @@
 # Hi, I'm Dima 👋
 
-Senior Software Developer crafting performant web experiences with **React** and **TypeScript**.
+Software Developer crafting performant web experiences.
 
 ## About
 
-10+ years building production-grade applications for fintech, enterprise, and SaaS companies. I focus on clean architecture, performance optimization, and developer experience.
+10+ years building production-grade web applications for fintech, enterprise, and SaaS companies. I focus on clean architecture, performance optimization, and developer experience.
 
 Currently exploring practical AI applications.
 
@@ -24,16 +24,11 @@ const dmitry = {
 
 ## Current Focus
 
-- 🎨 Building interactive 3D web experiences with Three.js
 - 🤖 Integrating AI capabilities into user-facing applications
-- 📚 Contributing to open source and sharing knowledge
+- 🎨 Building interactive 3D web experiences with Three.js
 
 ## Connect
 
 - 📧 [dmitry.belitsky@gmail.com](mailto:dmitry.belitsky@gmail.com)
 - 💼 [LinkedIn](https://linkedin.com/in/dmtry)
 - 📍 Espoo, Finland
-
----
-
-*"Code is like humor. When you have to explain it, it's bad." – Cory House*
