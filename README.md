@@ -46,8 +46,8 @@ cyanotype blueprints drying in finnish light.
 
 ```
                     ┌─────────────────────┐
-                    │  all signal.         │
-                    │  no genre.           │
+                    │  all signal.        │
+                    │  no genre.          │
                     └─────────────────────┘
 ```
 
