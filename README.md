@@ -1,34 +1,62 @@
-# Hi, I'm Dima 👋
-
-Software Developer crafting performant web experiences.
-
-## About
-
-10+ years building production-grade web applications for fintech, enterprise, and SaaS companies. I focus on clean architecture, performance optimization, and developer experience.
-
-Currently exploring practical AI applications.
-
-## Tech Stack
-
-```javascript
-const dmitry = {
-  code: ["TypeScript", "JavaScript", "Python"],
-  frontend: ["React", "Next.js", "Vue.js", "Three.js"],
-  backend: ["Node.js", "Express", "GraphQL", "Postgres"],
-  cloud: ["AWS", "Docker", "Kubernetes", "Supabase"],
-  tools: ["Git", "Jest", "Playwright", "Vite"],
-  architecture: ["Microservices", "REST APIs", "Event-Driven"],
-  currentlyLearning: ["WebGL", "3D Graphics", "AI Integration"]
-};
+```
+        ██████╗  █████╗ ██████╗ 
+        ██╔══██╗██╔══██╗██╔══██╗
+        ██║  ██║███████║██████╔╝
+        ██║  ██║██╔══██║██╔══██╗
+        ██████╔╝██║  ██║██████╔╝
+        ╚═════╝ ╚═╝  ╚═╝╚═════╝ 
 ```
 
-## Current Focus
+<br>
 
-- 🤖 Integrating AI capabilities into user-facing applications
-- 🎨 Building interactive 3D web experiences with Three.js
+```
+signal                          ░░░░░░░░░░░░░░░░░░░░░░░░░░  active
+noise_floor                     ▓░░░░░░░░░░░░░░░░░░░░░░░░░  nominal
+drift                           ░░░░░░░░░▓▓░░░░░░░░░░░░░░░  within range
+```
 
-## Connect
+<br>
 
-- 📧 [dmitry.belitsky@gmail.com](mailto:dmitry.belitsky@gmail.com)
-- 💼 [LinkedIn](https://linkedin.com/in/dmtry)
-- 📍 Espoo, Finland
+#### `// what this is`
+
+interfaces. systems that render, respond, mutate.  
+ten years of shaping pixels into something  
+that doesn't collapse under its own weight.  
+
+<br>
+
+#### `// what this is becoming`
+
+```
+├── webgl ──────── learning to think in shaders
+├── three.js ───── geometry as interface
+├── ai ─────────── not the hype. the seams.
+└── ???? ───────── ████████████████████
+```
+
+<br>
+
+#### `// elsewhere`
+
+the other signal lives outside the editor.  
+synthesis. vintage valve amplifiers taken apart  
+and put back together slightly different.  
+film grain. copper patina. ferric chloride.  
+cyanotype blueprints drying in finnish light.
+
+```
+                    ┌─────────────────────┐
+                    │  all signal.         │
+                    │  no genre.           │
+                    └─────────────────────┘
+```
+
+<br>
+
+#### `// resolve`
+
+```
+› ping dab
+```
+
+[`dmitry.belitsky@gmail.com`](mailto:dmitry.belitsky@gmail.com) · [`linkedin/dmtry`](https://linkedin.com/in/dmtry) · `60.1°N 24.8°E`
